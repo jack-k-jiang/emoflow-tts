@@ -1,3 +1,23 @@
+# Emoflow-TTS
+> Emoflow is a emotion-aware, low-latency Text-to-Speech.
+
+Setup
+-----
+
+Requires Python 3.10 or 3.11.
+
+```bash
+python3.11 -m venv .venv
+source .venv/bin/activate
+
+# Install torch/torchaudio matching your GPU's CUDA version first —
+# the default PyPI wheel may not match (e.g. on a Lightning.ai T4/L40S/A100 Studio):
+pip install torch torchaudio --index-url https://download.pytorch.org/whl/cu121
+
+# Then install the package and its remaining dependencies:
+pip install -r requirements.txt
+```
+
 References
 -------------
 

@@ -1,1 +1,7 @@
 EMOFLOW_TTS_PROJECT_SPEC.md
+.venv/
+.env
+data/raw/
+data/interim/
+data/processed/
+outputs/

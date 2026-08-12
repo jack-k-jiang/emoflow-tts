@@ -1,0 +1,12 @@
+# Lightning.ai Studio bootstrap file.
+#
+# All dependencies are declared in pyproject.toml — this file just installs
+# the package in editable mode with the `dev` extras so there is a single
+# source of truth. Run:
+#   pip install -r requirements.txt
+#
+# Before (or after) this, install torch/torchaudio via the CUDA-matched
+# index URL for your GPU tier (T4/L40S/A100), since the default PyPI
+# wheel may not match your CUDA version, e.g.:
+#   pip install torch torchaudio --index-url https://download.pytorch.org/whl/cu121
+-e .[dev]

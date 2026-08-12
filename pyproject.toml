@@ -5,13 +5,19 @@ build-backend = "hatchling.build"
 [project]
 name="emoflow-tts"
 version='0.0.1'
+requires-python = ">=3.10,<3.12"
 dependencies=[
     "torch",
     "torchaudio",
     "pydantic",
     "pyyaml",
     "pandas",
-    "numpy<2"
+    "numpy<2",
+    "openai-whisper",
+    "speechbrain",
+    "jiwer",
+    "scikit-learn",
+    "librosa"
 ]
 authors = [
     {name = "Jack Jiang"}
@@ -19,3 +25,8 @@ authors = [
 
 [project.optional-dependencies]
 dev = ["pytest", "ruff", "mypy"]
+
+[tool.pytest.ini_options]
+markers = [
+    "integration: model-heavy tests that need a real checkpoint/GPU, excluded from default CI run",
+]
