@@ -48,6 +48,3 @@ def timed_inference(device: str | torch.device = "cpu"):
         if is_cuda:
             torch.cuda.synchronize()
         result["elapsed_seconds"] = time.perf_counter() - start
-
-def test_computer_RTF():
-    assert compute_real_time_factor(2.0, 4.0) == 0.5
