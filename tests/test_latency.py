@@ -1,5 +1,7 @@
 import pytest
-from src.emoflow_tts.benchmark import compute_real_time_factor
+
+from emoflow_tts.inference.benchmark import compute_real_time_factor
+
 
 def test_computer_RTF():
     assert compute_real_time_factor(2.0, 4.0) == 0.5

@@ -5,3 +5,10 @@ data/raw/
 data/interim/
 data/processed/
 outputs/
+
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/

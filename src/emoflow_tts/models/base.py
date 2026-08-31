@@ -1,6 +1,8 @@
-import torch
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
+
+import torch
+
 
 @dataclass
 class SynthesisRequest:

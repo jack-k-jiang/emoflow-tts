@@ -1,6 +1,7 @@
-from pydantic import AfterValidator, BaseModel
 from typing import Literal
-import pandas
+
+from pydantic import BaseModel
+
 
 class ManifestRow(BaseModel):
     # required

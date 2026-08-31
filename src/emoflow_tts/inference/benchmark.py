@@ -2,9 +2,9 @@ from __future__ import annotations
 
 import time
 from contextlib import contextmanager
-from typing import Iterator
 
 import torch
+
 
 def compute_real_time_factor(
         inference_time_seconds: float,

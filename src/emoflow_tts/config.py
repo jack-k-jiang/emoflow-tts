@@ -3,6 +3,7 @@ from pathlib import Path
 import yaml
 from pydantic import BaseModel
 
+
 class ExperimentConfig(BaseModel):
     name: str
     seed: int
