@@ -17,7 +17,8 @@ dependencies=[
     "speechbrain",
     "jiwer",
     "scikit-learn",
-    "librosa"
+    "librosa",
+    "f5-tts"
 ]
 authors = [
     {name = "Jack Jiang"}
