@@ -1,0 +1,24 @@
+experiment:
+  name: baseline_f5
+  seed: 42
+
+model:
+  name: F5TTS_v1_Base
+  device: cuda
+  precision: fp16
+
+inference:
+  sampling_steps: 16
+  emotion:
+  emotion_strength: 1.0
+  reference_duration_seconds: 5.0
+
+data:
+  manifest_path: data/manifests/test.csv
+  output_dir: outputs/audio
+
+evaluation:
+  compute_wer: true
+  compute_speaker_similarity: true
+  compute_emotion_accuracy: true
+  compute_latency: true

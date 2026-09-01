@@ -16,7 +16,7 @@ class ModelConfig(BaseModel):
 
 class InferenceConfig(BaseModel):
     sampling_steps: int
-    emotion: str
+    emotion: str | None = None
     emotion_strength: float
     reference_duration_seconds: float
 
