@@ -1,10 +1,16 @@
 from importlib.resources import files
+import json
+from dataclasses import asdict
+from pathlib import Path
+
+import torchaudio
 
 from emoflow_tts.config import load_config
 from emoflow_tts.models.base import SynthesisRequest
 from emoflow_tts.models.f5_wrapper import F5Wrapper
 
-config = load_config("configs/inference/baseline.yaml")
+script_dir = Path(__file__).parent
+config = load_config(script_dir / "configs/inference/baseline.yaml")
 
 wrapper = F5Wrapper(model_name=config.model.name, device=config.model.device)
 
@@ -23,3 +29,15 @@ request = SynthesisRequest(
 )
 result = wrapper.synthesize(request)
 print(result.metadata.real_time_factor, result.metadata.inference_time_seconds)
+
+output_dir = Path(config.data.output_dir)
+output_dir.mkdir(parents=True, exist_ok=True)
+
+audio_path = output_dir / "sample_001.wav"
+torchaudio.save(str(audio_path), result.audio.unsqueeze(0).float(), result.sample_rate)
+
+metadata_path = output_dir / "sample_001.json"
+metadata_path.write_text(json.dumps(asdict(result.metadata), indent=2))
+
+print(f"Saved audio to {audio_path}")
+print(f"Saved metadata to {metadata_path}")
